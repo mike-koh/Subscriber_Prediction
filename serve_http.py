@@ -20,18 +20,17 @@ def predict_prob(subscriber_features,
     Returns:
         churn_prob (float): churn probability
     """
-    row_feats = list()
-    for col in SUBSCRIBER_FEATURES:
-        row_feats.append(subscriber_features[col])
-
+    payloaddf = pd.DataFrame(payload,index=[0])
+    xgpayload = xgb.DMatrix(payloaddf.values)
+        
     # Score
-    churn_prob = (
+    sub_prob = (
         model
-        .predict(np.array(subscriber_features).reshape(1, -1))[:, 1]
+        .predict(xgpayload)
         .item()
     )
 
-    return churn_prob
+    return sub_prob
 
 
 # pylint: disable=invalid-name
