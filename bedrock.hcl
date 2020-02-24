@@ -37,11 +37,11 @@ train {
       	MAX_DEPTH = "5"
       	ETA = "0.2"
       	GAMMA = "4"
-      	MIN_CHILD_WEIGHT = '6'
-      	SUBSAMPLE = '0.8'
-      	SILENT = '0'
-      	OBJECTIVE = 'binary:logistic'
-      	NUM_ROUND = '100'
+      	MIN_CHILD_WEIGHT = "6"
+      	SUBSAMPLE = "0.8"
+      	SILENT = "0"
+      	OBJECTIVE = "binary:logistic"
+      	NUM_ROUND = "100"
         OUTPUT_MODEL_NAME = "xgb_model.pkl"
     }
     
