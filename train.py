@@ -23,6 +23,7 @@ SUBSAMPLE = float(os.getenv("SUBSAMPLE"))
 SILENT = int(os.getenv("SILENT"))
 OBJECTIVE = os.getenv("OBJECTIVE")
 NUM_ROUND = int(os.getenv("NUM_ROUND"))
+OUTPUT_MODEL_NAME = os.getenv("OUTPUT_MODEL_NAME")
 
 def compute_log_metrics(bst, xgtest, test_data):
     """Compute and log metrics."""      
