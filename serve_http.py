@@ -27,7 +27,7 @@ def predict_prob(subscriber_features,
     # Score
     churn_prob = (
         model
-        .predict_proba(np.array(subscriber_features).reshape(1, -1))[:, 1]
+        .predict(np.array(subscriber_features).reshape(1, -1))[:, 1]
         .item()
     )
 
