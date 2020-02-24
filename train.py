@@ -75,7 +75,7 @@ def main():
     num_round=NUM_ROUND
     bst = xgb.train(param, xgtrain, num_round)
 
-    compute_log_metrics(y_targets, y_preds)
+    compute_log_metrics(bst, xgtest, test_data)
 
 
     print("\tSaving model")
