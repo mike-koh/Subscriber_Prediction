@@ -15,14 +15,14 @@ OUTPUT_MODEL_NAME = "/artefact/train/xgb_model.pkl"
 
 def predict_prob(subscriber_features,
                  model=pickle.load(open(OUTPUT_MODEL_NAME, "rb"))):
-    """Predict churn probability given subscriber_features.
+    """Predict subscribe probability given subscriber_features.
     Args:
         subscriber_features (dict)
         model
     Returns:
-        churn_prob (float): churn probability
+        sub_prob (float): subscribe probability
     """
-    payloaddf = pd.DataFrame(payload,index=[0])
+    payloaddf = pd.DataFrame(subscriber_features,index=[0])
     xgpayload = xgb.DMatrix(payloaddf.values)
         
     # Score
@@ -41,11 +41,11 @@ app = Flask(__name__)
 
 @app.route("/", methods=["POST"])
 def get_churn():
-    """Returns the `churn_prob` given the subscriber features"""
+    """Returns the `sub_prob` given the subscriber features"""
 
     subscriber_features = request.json
     result = {
-        "subscribe_prob": predict_prob(subscriber_features)
+        "sub_prob": predict_prob(subscriber_features)
     }
     return result
 
