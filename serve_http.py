@@ -4,6 +4,7 @@ Script for serving.
 import pickle
 
 import numpy as np
+import pandas as pd
 from flask import Flask, request
 from constants import SUBSCRIBER_FEATURES
 
