@@ -11,7 +11,7 @@ def main():
     print("\tPreprocessing")
     subscribers = pd.read_csv(RAW_SUBSCRIBERS_DATA)
     subscribers = subscribers.drop(['y_no'],axis=1)
-    subscribers.to_csv(PREPROCESSED_DATA,index="false")
+    subscribers.to_csv(PREPROCESSED_DATA,index=False)
 
 if __name__ == "__main__":
     main()
