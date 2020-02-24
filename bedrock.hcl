@@ -33,7 +33,7 @@ train {
     parameters {
         RAW_SUBSCRIBERS_DATA = "https://d1.awsstatic.com/tmt/build-train-deploy-machine-learning-model-sagemaker/bank_clean.27f01fbbdf43271788427f3682996ae29ceca05d.csv"
         TEMP_DATA_BUCKET = "gs://span-temp-production/"
-        PREPROCESSED_DATA = "churn_data/preprocessed"
+        PREPROCESSED_DATA = "subscriber_data/preprocessed"
       	MAX_DEPTH = "5"
       	ETA = "0.2"
       	GAMMA = "4"
