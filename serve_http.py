@@ -5,6 +5,7 @@ import pickle
 
 import numpy as np
 import pandas as pd
+import xgboost as xgb
 from flask import Flask, request
 from constants import SUBSCRIBER_FEATURES
 
