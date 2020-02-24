@@ -15,7 +15,7 @@ from helper import get_temp_data_bucket
 TEMP_DATA_BUCKET = get_temp_data_bucket()
 PREPROCESSED_DATA = TEMP_DATA_BUCKET + os.getenv("PREPROCESSED_DATA")
 
-MAX_DEPTH = float(os.getenv("MAX_DEPTH"))
+MAX_DEPTH = int(os.getenv("MAX_DEPTH"))
 ETA = float(os.getenv("ETA"))
 GAMMA = float(os.getenv("GAMMA"))
 MIN_CHILD_WEIGHT = int(os.getenv("MIN_CHILD_WEIGHT"))
