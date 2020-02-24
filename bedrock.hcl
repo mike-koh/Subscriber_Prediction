@@ -17,7 +17,7 @@ train {
     
     step train {
         image = "basisai/workload-standard"
-        install = ["pip3 install -r requirements-train.txt"]
+        install = ["pip3 install -r requirements.txt"]
         script = [
             {
                 sh = ["python3 train.py"]
@@ -36,10 +36,10 @@ train {
         PREPROCESSED_DATA = "churn_data/preprocessed"
       	MAX_DEPTH = "5"
       	ETA = "0.2"
-      	GAMMA = "4",
-      	MIN_CHILD_WEIGHT = '6',
-      	SUBSAMPLE = '0.8',
-      	SILENT = '0',
+      	GAMMA = "4"
+      	MIN_CHILD_WEIGHT = '6'
+      	SUBSAMPLE = '0.8'
+      	SILENT = '0'
       	OBJECTIVE = 'binary:logistic'
       	NUM_ROUND = '100'
         OUTPUT_MODEL_NAME = "xgb_model.pkl"
@@ -54,6 +54,6 @@ train {
 
 serve {
     image = "python:3.7"
-    install = ["pip3 install -r requirements-serve.txt"]
+    install = ["pip3 install -r requirements.txt"]
     script = [{sh = ["gunicorn --bind=:${SERVER_PORT} --worker-class=gthread --timeout=300 serve_http:app"]}]
 }
