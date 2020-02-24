@@ -29,12 +29,12 @@ def compute_log_metrics(bst, xgtest, test_data):
     print("\tEvaluating using validation data")
     preds = bst.predict(xgtest)
     y_target = test_data['y_yes']
-	y_preds = np.round(preds).astype(int)
+    y_preds = np.round(preds).astype(int)
 	
-	acc = metrics.accuracy_score(y_target, y_preds)
-	f1 = metrics.f1_score(y_target, y_preds)
-	precision = metrics.precision_score(y_target, y_preds)
-	recall = metrics.recall_score(y_target, y_preds)
+    acc = metrics.accuracy_score(y_target, y_preds)
+    f1 = metrics.f1_score(y_target, y_preds)
+    precision = metrics.precision_score(y_target, y_preds)
+    recall = metrics.recall_score(y_target, y_preds)
 
     print("Accuracy = {:.6f}".format(acc))
     print("Precision = {:.6f}".format(precision))
@@ -56,21 +56,21 @@ def main():
 
     print("\tSplitting train and validation data")
     train_data, test_data = np.split(subscribers.sample(frac=1, random_state=1729), [int(0.7 * len(subscribers))])
-	target = train_data['y_yes']
-	train = train_data.drop(['y_yes'],axis=1)
-	test = test_data.drop(['y_yes'],axis=1)
-	xgtrain = xgb.DMatrix(train.values, target.values)
-	xgtest = xgb.DMatrix(test.values)
+    target = train_data['y_yes']
+    train = train_data.drop(['y_yes'],axis=1)
+    test = test_data.drop(['y_yes'],axis=1)
+    xgtrain = xgb.DMatrix(train.values, target.values)
+    xgtest = xgb.DMatrix(test.values)
 
     print("\tTrain model")
     param = {
-	    max_depth:MAX_DEPTH,
-	    eta:ETA,
-	    gamma:GAMMA,
-	    min_child_weight:MIN_CHILD_WEIGHT,
-	    subsample:SUBSAMPLE,
-	    silent:SILENT,
-	    objective:OBJECTIVE
+	max_depth:MAX_DEPTH,
+	eta:ETA,
+	gamma:GAMMA,
+	min_child_weight:MIN_CHILD_WEIGHT,
+	subsample:SUBSAMPLE,
+	silent:SILENT,
+	objective:OBJECTIVE
     }
     num_round=NUM_ROUND
     bst = xgb.train(param, xgtrain, num_round)
