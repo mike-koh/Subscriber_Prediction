@@ -3,7 +3,7 @@ version = "1.0"
 train {
     step preprocess {
         image = "basisai/workload-standard"
-        install = ["pip3 install -r requirements-train.txt"]
+        install = ["pip3 install -r requirements.txt"]
         script = [
             {
                 sh = ["python3 preprocess.py"]
