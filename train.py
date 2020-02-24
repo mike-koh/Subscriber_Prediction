@@ -64,13 +64,13 @@ def main():
 
     print("\tTrain model")
     param = {
-	max_depth:MAX_DEPTH,
-	eta:ETA,
-	gamma:GAMMA,
-	min_child_weight:MIN_CHILD_WEIGHT,
-	subsample:SUBSAMPLE,
-	silent:SILENT,
-	objective:OBJECTIVE
+	'max_depth':MAX_DEPTH,
+	'eta':ETA,
+	'gamma':GAMMA,
+	'min_child_weight':MIN_CHILD_WEIGHT,
+	'subsample':SUBSAMPLE,
+	'silent':SILENT,
+	'objective':OBJECTIVE
     }
     num_round=NUM_ROUND
     bst = xgb.train(param, xgtrain, num_round)
